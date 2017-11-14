@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Slide in Login Screen</title>
-<link href="../_css/site.css" rel="stylesheet">
+<link href="../effect/site.css" rel="stylesheet">
 <style>
 #login {
 	width: 300px;
@@ -61,11 +61,20 @@
 	padding-right: 15px;
 }
 </style>
-<script src="../_js/jquery.min.js"></script>
+<script src="../effect/jquery.min.js"></script>
 <script>
-$(document).ready(function() {
-
-}); // end ready
+    $(document).ready(function() {
+        $('#open').click(function(evt) {
+            evt.preventDefault();
+            if ($('#login form').is(':hidden')) {
+                $('#login form').fadeIn(300);
+                $(this).addClass('close');
+            } else {
+                $('#login form').slideUp(600);
+                $(this).removeClass('close');
+            }
+        }); // end click
+    }); // end ready
 </script>
 </head>
 <body>
@@ -75,7 +84,7 @@ $(document).ready(function() {
 	</header>
 	<div class="content">
 	<div id="login">
-	<a href="form.html"><p id="open">Login</p></a>
+	<a href="../form.html"><p id="open">Login</p></a>
 	<form>
 		<p>
 			<label for="username">Username:</label>
